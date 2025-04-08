@@ -16,3 +16,5 @@ If you modify the UI, click the **"Analyze Canvas Draw Call"** button in the win
 
 - If the **Target Canvas** is null, the button text will change to **"Canvas is Null!"**.
 - If there are no Graphics under the Canvas, the window will show **"No Graphic In Canvas!"**.
+
+**"If this tool doesn’t meet your expectations, feel free to modify it. Have a great day!"**

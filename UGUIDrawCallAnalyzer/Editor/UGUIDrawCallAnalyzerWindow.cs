@@ -220,7 +220,7 @@ namespace Venus.UGUIDrawCallAnalyzer
         private void GetComponentsRecursive(Transform parent, List<Graphic> results)
         {
             Graphic graphic = parent.GetComponent<Graphic>();
-            if (graphic != null && graphic.isActiveAndEnabled)
+            if (graphic != null && graphic.isActiveAndEnabled && graphic.color.a > 0 && graphic.rectTransform.lossyScale != Vector3.zero)
             {
                 results.Add(graphic);
             }
