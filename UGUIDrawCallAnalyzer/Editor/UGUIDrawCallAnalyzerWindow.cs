@@ -23,6 +23,7 @@ namespace Venus.UGUIDrawCallAnalyzer
 
         private Canvas _canvas;
         private List<BatchInfo> _batchInfos = new List<BatchInfo>();
+        private Vector3 _scrollPos;
 
         private static readonly Color[] BatchColors = new Color[]
         {
@@ -92,7 +93,8 @@ namespace Venus.UGUIDrawCallAnalyzer
                 EditorGUILayout.LabelField($"Total DrawCalls: {_batchInfos.Count}", _drawCallCountStyle);
                 GUILayout.Space(8);
                 EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
-
+                
+                _scrollPos = EditorGUILayout.BeginScrollView(_scrollPos, false, true);
                 for (int i = 0; i < _batchInfos.Count; i++)
                 {
                     BatchInfo info = _batchInfos[i];
@@ -118,6 +120,7 @@ namespace Venus.UGUIDrawCallAnalyzer
 
                     EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
                 }
+                EditorGUILayout.EndScrollView();
             }
             else
             {
@@ -133,6 +136,7 @@ namespace Venus.UGUIDrawCallAnalyzer
 
         private void ProcessBatch()
         {
+            _scrollPos = Vector3.zero;
             if (_canvas == null) return;
 
             _batchInfos.Clear();
